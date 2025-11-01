@@ -1,0 +1,1865 @@
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЦИТАДЕЛЬ | Выход на 200-300к в месяц</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --black: #000000;
+            --dark: #0a0a0a;
+            --darker: #111111;
+            --dark-gray: #1a1a1a;
+            --gray: #2a2a2a;
+            --light-gray: #3a3a3a;
+            --white: #ffffff;
+            --accent: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --shadow-hover: rgba(0, 0, 0, 0.7);
+            --gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --accent-red: #FF4757;
+            --accent-green: #2ED573;
+            --accent-blue: #3742FA;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Splash Screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1.5s ease-out;
+        }
+
+        .splash-logo {
+            font-size: 12rem;
+            font-weight: 900;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 15px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: logoReveal 3s ease-out forwards;
+            position: relative;
+            text-shadow: 0 0 50px rgba(255, 255, 255, 0.7);
+            text-align: center;
+            line-height: 1;
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1.05);
+                text-shadow: 0 0 80px rgba(255, 255, 255, 0.9);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.1);
+                text-shadow: 0 0 100px rgba(255, 255, 255, 1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                text-shadow: 0 0 50px rgba(255, 255, 255, 0.7);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, var(--gray) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease-out 3.2s forwards;
+            width: 100%;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 8rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            color: var(--white);
+            text-transform: uppercase;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: logoFinal 1.5s ease-out 3.5s forwards;
+            line-height: 1;
+            display: block;
+        }
+
+        @keyframes logoFinal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-line {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 6px;
+            background: var(--white);
+            border-radius: 3px;
+            animation: lineReveal 1.5s ease-out 4.2s forwards;
+        }
+
+        @keyframes lineReveal {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 80%;
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 4.5s forwards;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 4.7s forwards;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 25px 30px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            text-shadow: none;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 40px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow-hover);
+        }
+
+        .btn-large {
+            padding: 22px 50px;
+            font-size: 1.2rem;
+        }
+
+        /* Ivan's Section - COMPLETELY REDESIGNED */
+        .ivan-section {
+            padding: 80px 0;
+            background: var(--black);
+            position: relative;
+        }
+
+        .ivan-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, var(--gray) 0%, transparent 50%);
+            opacity: 0.1;
+        }
+
+        .ivan-hero {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .ivan-photo-container {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            min-height: 400px;
+            aspect-ratio: 16/9;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow);
+            transition: all 0.5s ease;
+            border: 1px solid var(--gray);
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ivan-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
+            color: var(--white);
+            background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .photo-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .photo-badge {
+            background: #FFD700;
+            color: var(--black);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .photo-stats {
+            text-align: right;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-main {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFD700;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-sub {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .photo-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: end;
+        }
+
+        .photo-info {
+            flex: 1;
+        }
+
+        .photo-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .photo-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .photo-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .feature-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .photo-achievements {
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+        }
+
+        .achievement-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #FFD700;
+            text-transform: uppercase;
+        }
+
+        .achievement-list {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .achievement-list li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .achievement-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+
+        .ivan-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .case-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .case-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .case-niche {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            display: inline-block;
+            padding: 8px 18px;
+            background: var(--dark-gray);
+            border-radius: 18px;
+            border: 1px solid var(--gray);
+        }
+
+        .case-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .point-card {
+            background: var(--dark-gray);
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow);
+            border: 1px solid var(--gray);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+
+        .point-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .point-a::before {
+            background: var(--accent-red);
+        }
+
+        .point-b::before {
+            background: var(--accent-green);
+        }
+
+        .point-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .point-card:hover {
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 0 20px 50px var(--shadow-hover);
+        }
+
+        .point-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .point-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .point-a .point-icon {
+            background: linear-gradient(135deg, var(--accent-red), #FF6B81);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.3);
+        }
+
+        .point-b .point-icon {
+            background: linear-gradient(135deg, var(--accent-green), #7BED9F);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(46, 213, 115, 0.3);
+        }
+
+        .point-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.2;
+        }
+
+        .point-list {
+            list-style: none;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .point-list li {
+            margin-bottom: 15px;
+            padding: 12px 15px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid transparent;
+            transform: translateZ(0);
+        }
+
+        .point-a .point-list li {
+            border-left-color: var(--accent-red);
+        }
+
+        .point-b .point-list li {
+            border-left-color: var(--accent-green);
+        }
+
+        .point-list li:hover {
+            transform: translateX(5px) translateZ(0);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .point-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Improved CTA Buttons */
+        .ivan-cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #212529;
+            font-weight: 800;
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            border: none;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateZ(0);
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: left 0.7s;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) translateZ(0);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid #f8f9fa;
+            font-weight: 800;
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transform: translateZ(0);
+        }
+
+        .cta-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .cta-secondary:hover::before {
+            left: 100%;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffffff;
+            transform: translateY(-3px) translateZ(0);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, var(--gray) 0%, transparent 50%);
+            opacity: 0.1;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            position: relative;
+            display: inline-block;
+            color: var(--white);
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-card {
+            background: var(--dark-gray);
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--gray);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transform: translateZ(0);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gray);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 0 25px 60px var(--shadow-hover);
+        }
+
+        .benefit-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .benefit-content {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 1rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .navigation {
+            padding: 100px 0;
+            background-color: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navigation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, var(--gray) 0%, transparent 50%);
+            opacity: 0.1;
+        }
+
+        .nav-categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav-category {
+            margin-bottom: 0;
+        }
+
+        .nav-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--white);
+            display: inline-block;
+            color: var(--white);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.4s ease;
+        }
+
+        .nav-category:hover .nav-title::after {
+            width: 100%;
+        }
+
+        .nav-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            text-align: center;
+            transform: translateZ(0);
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--white);
+            transition: left 0.3s ease;
+        }
+
+        .nav-item:hover::before {
+            left: 0;
+        }
+
+        .nav-item:hover {
+            padding-left: 8px;
+            color: var(--white);
+            transform: translateX(3px) translateZ(0);
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 0;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, var(--gray) 0%, transparent 50%);
+            opacity: 0.1;
+        }
+
+        .price-card {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 45px 35px;
+            border-radius: 20px;
+            max-width: 550px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 20px 50px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--gray);
+            z-index: 2;
+            transform: translateZ(0);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--white);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: lineRevealCase 1.2s ease-out 0.8s forwards;
+        }
+
+        @keyframes lineRevealCase {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+            color: var(--white);
+        }
+
+        .price::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--white);
+            transform: scaleX(0);
+            transform-origin: center;
+            animation: lineReveal 1.2s ease-out 1s forwards;
+            border-radius: 2px;
+        }
+
+        .price-note {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+
+        .feature-item:hover {
+            transform: translateX(5px) translateZ(0);
+            color: var(--white);
+        }
+
+        .feature-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .urgency-note {
+            margin: 20px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.85rem;
+            color: var(--white);
+            padding: 10px 18px;
+            background: var(--gray);
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .payment-options {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 2s forwards;
+        }
+
+        .floating-cta .btn {
+            transform: translateZ(0);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive - COMPLETELY REDESIGNED PHOTO LAYOUT */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
+            }
+            
+            .splash-logo {
+                font-size: 10rem;
+            }
+            
+            .logo {
+                font-size: 7rem;
+            }
+            
+            .nav-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .case-points {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .ivan-photo-container {
+                aspect-ratio: 16/9;
+                min-height: 350px;
+            }
+            
+            .photo-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 5rem;
+            }
+            
+            .splash-logo {
+                font-size: 7rem;
+                letter-spacing: 8px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+            
+            .nav-categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+                padding: 20px;
+                margin-bottom: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .nav-categories {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .price-card {
+                padding: 35px 25px;
+                max-width: 100%;
+            }
+            
+            .price {
+                font-size: 3rem;
+            }
+            
+            .hero::before {
+                width: 100%;
+                opacity: 0.2;
+            }
+            
+            .logo {
+                font-size: 4rem;
+                letter-spacing: 5px;
+            }
+            
+            .splash-logo {
+                font-size: 5rem;
+                letter-spacing: 6px;
+            }
+            
+            .ivan-section {
+                padding: 60px 0;
+            }
+            
+            /* REDESIGNED: Mobile photo layout */
+            .ivan-photo-container {
+                aspect-ratio: 3/4;
+                min-height: 500px;
+                border-radius: 15px;
+                margin: 0 10px;
+                width: calc(100% - 20px);
+            }
+            
+            .photo-content {
+                padding: 20px;
+                background: linear-gradient(45deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+            }
+            
+            .photo-top {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .photo-stats {
+                text-align: center;
+                order: -1;
+            }
+            
+            .stat-main {
+                font-size: 1.8rem;
+            }
+            
+            .photo-bottom {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .photo-title {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+            
+            .photo-subtitle {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+            
+            .photo-features {
+                justify-content: center;
+            }
+            
+            .photo-achievements {
+                text-align: center;
+            }
+            
+            .point-card {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+            
+            .point-header {
+                margin-bottom: 20px;
+                gap: 12px;
+            }
+            
+            .point-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .point-title {
+                font-size: 1.5rem;
+            }
+            
+            .point-list li {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+            
+            .ivan-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-top: 25px;
+            }
+            
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                padding: 16px 25px;
+                font-size: 1rem;
+            }
+            
+            .benefit-card {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+            
+            .benefit-title {
+                font-size: 1.4rem;
+            }
+            
+            .nav-title {
+                font-size: 1.2rem;
+            }
+            
+            .nav-item {
+                font-size: 0.9rem;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+                padding: 15px;
+                margin-bottom: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn, .btn-large {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 25px;
+                font-size: 1rem;
+            }
+            
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+            }
+            
+            .price-card {
+                padding: 25px 20px;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
+                letter-spacing: 3px;
+            }
+            
+            .splash-logo {
+                font-size: 3.5rem;
+                letter-spacing: 4px;
+            }
+            
+            /* REDESIGNED: Small mobile photo layout */
+            .ivan-photo-container {
+                aspect-ratio: 2/3;
+                min-height: 400px;
+                border-radius: 12px;
+                margin: 0 8px;
+                width: calc(100% - 16px);
+            }
+            
+            .photo-content {
+                padding: 15px;
+            }
+            
+            .photo-badge {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+            
+            .stat-main {
+                font-size: 1.5rem;
+            }
+            
+            .stat-sub {
+                font-size: 0.7rem;
+            }
+            
+            .photo-title {
+                font-size: 1.4rem;
+            }
+            
+            .photo-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .feature-tag {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            
+            .photo-achievements {
+                padding: 15px;
+            }
+            
+            .achievement-title {
+                font-size: 0.9rem;
+            }
+            
+            .achievement-list {
+                font-size: 0.8rem;
+            }
+            
+            .case-niche {
+                font-size: 1rem;
+                padding: 6px 15px;
+            }
+            
+            .point-card {
+                padding: 20px 15px;
+            }
+            
+            .point-title {
+                font-size: 1.3rem;
+            }
+            
+            .point-list li {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+                margin-bottom: 10px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .benefit-card {
+                padding: 20px 15px;
+            }
+            
+            .benefit-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .nav-categories {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .nav-title {
+                font-size: 1.1rem;
+            }
+            
+            .nav-item {
+                font-size: 0.85rem;
+                padding: 8px 0;
+            }
+            
+            .ivan-cta {
+                margin-top: 20px;
+                gap: 12px;
+            }
+            
+            .cta-primary, .cta-secondary {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .splash-logo {
+                font-size: 3rem;
+            }
+            
+            /* REDESIGNED: Extra small mobile optimization */
+            .ivan-photo-container {
+                aspect-ratio: 2/3;
+                min-height: 350px;
+                border-radius: 10px;
+                margin: 0 5px;
+                width: calc(100% - 10px);
+            }
+            
+            .photo-content {
+                padding: 12px;
+            }
+            
+            .photo-badge {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
+            
+            .stat-main {
+                font-size: 1.3rem;
+            }
+            
+            .photo-title {
+                font-size: 1.2rem;
+            }
+            
+            .photo-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .point-title {
+                font-size: 1.2rem;
+            }
+            
+            .ivan-cta {
+                margin-top: 15px;
+            }
+        }
+
+        /* Performance optimizations */
+        .performance-optimized {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000;
+            will-change: transform;
+        }
+
+        /* Fallback for browsers that don't support aspect-ratio */
+        @supports not (aspect-ratio: 16/9) {
+            .ivan-photo-container {
+                height: 400px;
+            }
+            
+            @media (max-width: 768px) {
+                .ivan-photo-container {
+                    height: 500px;
+                }
+            }
+            
+            @media (max-width: 576px) {
+                .ivan-photo-container {
+                    height: 400px;
+                }
+            }
+            
+            @media (max-width: 400px) {
+                .ivan-photo-container {
+                    height: 350px;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-logo">ЦИТАДЕЛЬ</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo-container">
+                    <div class="logo">ЦИТАДЕЛЬ</div>
+                    <div class="logo-line"></div>
+                </div>
+                <h1>Теперь ты можешь перестать быть нищим</h1>
+                <p class="hero-subtitle">ЦИТАДЕЛЬ — самый простой и быстрый способ выйти на первые 200-300к дохода в онлайне. Без воды, только рабочие методы.</p>
+                <a href="#pricing" class="btn btn-large performance-optimized">
+                    <i class="fas fa-rocket"></i>
+                    Начать зарабатывать
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ivan's Section - COMPLETELY REDESIGNED -->
+    <section class="ivan-section">
+        <div class="container">
+            <!-- Redesigned Photo with Content -->
+            <div class="ivan-hero">
+                <div class="ivan-photo-container performance-optimized">
+                    <img src="иван.jpg" alt="Иван Гаврилюк - успешный ученик Цитадели" class="ivan-photo" onerror="this.style.display='none'">
+                    <div class="photo-content">
+                        <div class="photo-top">
+                            <div class="photo-badge">Самый успешный кейс</div>
+                            <div class="photo-stats">
+                                <div class="stat-main">$3500</div>
+                                <div class="stat-sub">ЗА ИЮНЬ</div>
+                            </div>
+                        </div>
+                        <div class="photo-bottom">
+                            <div class="photo-info">
+                                <h2 class="photo-title">Иван "Whygako" Гаврилюк</h2>
+                                <p class="photo-subtitle">Успешный ученик Цитадели</p>
+                               
+                            </div>
+                            <div class="photo-achievements">
+                                <div class="achievement-title">Достижения</div>
+                                <ul class="achievement-list">
+                                    <li>В 17 лет переехал в Москву</li>
+                                    <li>Прокачал закрытый канал</li>
+                                    <li>Стабильный доход $3001+</li>
+                                    <li>Проекты на миллионы рублей</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="ivan-content">
+                <!-- Case Info -->
+                <div class="case-info">
+                    <div class="case-header">
+                        <div class="case-niche">Ниша: Продажи</div>
+                    </div>
+                    
+                    <div class="case-points">
+                        <div class="point-card point-a performance-optimized">
+                            <div class="point-header">
+                                <div class="point-icon">А</div>
+                                <h3 class="point-title">Точка А<br><span style="font-size: 1rem; opacity: 0.8;">До обучения</span></h3>
+                            </div>
+                            <ul class="point-list">
+                                <li>Непонимание как монетизировать навыки</li>
+                                <li>Отсутствие стабильного дохода</li>
+                                <li>Нет понимания ценности своих услуг</li>
+                                <li>Работа за копейки без перспектив</li>
+                                <li>Неумение продавать себя и услуги</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="point-card point-b performance-optimized">
+                            <div class="point-header">
+                                <div class="point-icon">Б</div>
+                                <h3 class="point-title">Точка Б<br><span style="font-size: 1rem; opacity: 0.8;">После обучения</span></h3>
+                            </div>
+                            <ul class="point-list">
+                                <li>Стабильный доход $3001+ в месяц</li>
+                                <li>Проекты на миллионы рублей</li>
+                                <li>Переезд в Москву в 17 лет</li>
+                                <li>Прокачанный закрытый канал</li>
+                                <li>Понимание ценности и упаковки услуг</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="ivan-cta">
+                        <a href="https://t.me/OtziviCitadel" class="btn cta-primary performance-optimized">
+                            <i class="fas fa-comment"></i>
+                            Посмотреть все отзывы
+                        </a>
+                        <a href="https://t.me/m/WNiL3UICZGIy" class="btn cta-secondary performance-optimized">
+                            <i class="fas fa-rocket"></i>
+                            Вступить в Цитадель
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Что внутри Цитадели</h2>
+            <p class="section-subtitle">Полная система для выхода на высокий доход в онлайне</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card performance-optimized">
+                    <h3 class="benefit-title">Выбор своего дела</h3>
+                    <div class="benefit-content">
+                        Эфиры о быстром старте в прибыльных нишах + интервью с экспертами, которые зарабатывают 200.000+ рублей в месяц.
+                    </div>
+                </div>
+                
+                <div class="benefit-card performance-optimized">
+                    <h3 class="benefit-title">Окупаемость за 24 часа</h3>
+                    <div class="benefit-content">
+                        Как найти скрытые активы и возможности для заработка. 2 рабочих способа окупить вложения в первый же день.
+                    </div>
+                </div>
+                
+                <div class="benefit-card performance-optimized">
+                    <h3 class="benefit-title">Продажи на высокие чеки</h3>
+                    <div class="benefit-content">
+                        Поиск клиентов, переписки, звонки и закрытие сделок от 100.000 рублей. Вся система от А до Я.
+                    </div>
+                </div>
+                
+                <div class="benefit-card performance-optimized">
+                    <h3 class="benefit-title">Создание онлайн-бизнеса</h3>
+                    <div class="benefit-content">
+                        Многолетний опыт упакованный в систему. Создание продуктов, продажи через психологию, построение воронок.
+                    </div>
+                </div>
+                
+                <div class="benefit-card performance-optimized">
+                    <h3 class="benefit-title">Медиа и масштабирование</h3>
+                    <div class="benefit-content">
+                        Как вырасти с 100.000 до 1.000.000 рублей в месяц. Инструменты масштабирования любого бизнеса.
+                    </div>
+                </div>
+                
+                <div class="benefit-card performance-optimized">
+                    <h3 class="benefit-title">Психология и установки</h3>
+                    <div class="benefit-content">
+                        Фундамент для роста дохода. Замена деструктивных установок на те, что помогают зарабатывать.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="navigation">
+        <div class="container">
+            <h2 class="section-title">Навигация по Цитадели</h2>
+            <p class="section-subtitle">Структурированный контент для быстрого роста</p>
+            
+            <div class="nav-categories">
+                <div class="nav-category">
+                    <h3 class="nav-title">Для новичков</h3>
+                    <div class="nav-items">
+                        <div class="nav-item performance-optimized">Как быстро выбрать нишу и сразу стартовать в ней</div>
+                        <div class="nav-item performance-optimized">Техника 5 единичек (посмотреть как можно раньше)</div>
+                        <div class="nav-item performance-optimized">Как зарабатывать 3.500+/день с помощью Цитадели</div>
+                        <div class="nav-item performance-optimized">Сарафанное радио выведет тебя на 100к/месяц</div>
+                        <div class="nav-item performance-optimized">Как выйти на 1.000.000 дохода с 50к рублей за 1 месяц</div>
+                    </div>
+                </div>
+                
+                <div class="nav-category">
+                    <h3 class="nav-title">Продажи</h3>
+                    <div class="nav-items">
+                        <div class="nav-item performance-optimized">Гайд на холодную рассылку</div>
+                        <div class="nav-item performance-optimized">Гайд на построение оффера и УТП</div>
+                        <div class="nav-item performance-optimized">Полный эфир про продажу на созвоне на чек 250к+</div>
+                        <div class="nav-item performance-optimized">Как найти клиентов на 500.000+ в живую</div>
+                        <div class="nav-item performance-optimized">Как построить свое агентство в услуговом бизнесе</div>
+                    </div>
+                </div>
+                
+                <div class="nav-category">
+                    <h3 class="nav-title">Медиа</h3>
+                    <div class="nav-items">
+                        <div class="nav-item performance-optimized">Почему без медийки тяжело зарабатывать миллионы</div>
+                        <div class="nav-item performance-optimized">Гайд на залетные ролики в TikTok</div>
+                        <div class="nav-item performance-optimized">Как снимать видео без монтажа и попадать в рекомендации</div>
+                        <div class="nav-item performance-optimized">Что по настоящему цепляет людей в коротких роликах</div>
+                        <div class="nav-item performance-optimized">Техника адаптации контента</div>
+                    </div>
+                </div>
+                
+                <div class="nav-category">
+                    <h3 class="nav-title">Установки</h3>
+                    <div class="nav-items">
+                        <div class="nav-item performance-optimized">Как избавиться от выгорания</div>
+                        <div class="nav-item performance-optimized">Как начать делать если заебался</div>
+                        <div class="nav-item performance-optimized">Уничтожь жалость к себе раз и навсегда</div>
+                        <div class="nav-item performance-optimized">Конкуренции не существует</div>
+                        <div class="nav-item performance-optimized">Идти до конца и никогда не сдаваться</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Вступить в Цитадель</h2>
+            <p class="section-subtitle">Инвестиция, которая окупится в первый же день</p>
+            
+            <div class="price-card performance-optimized">
+                <h3 style="font-size: 1.6rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.8px;">Полный доступ к Цитадели</h3>
+                <div class="price">11.990 ₽</div>
+                <p class="price-note">Единоразовый платёж за доступ навсегда</p>
+                
+                <div class="features-list">
+                    <div class="feature-item performance-optimized">Чат единомышленников и крутые связи</div>
+                    <div class="feature-item performance-optimized">Вся информация по повышению дохода любыми способами</div>
+                    <div class="feature-item performance-optimized">Эфиры, оффлайн-ивенты (сходки), онлайн-турниры</div>
+                    <div class="feature-item performance-optimized">Гайд на переезд в другие страны даже если тебе нет 18 лет</div>
+                    <div class="feature-item performance-optimized">Личная поддержка от кураторов</div>
+                </div>
+                
+                <p class="urgency-note">Цена растёт на 1000₽ с каждым 10-м участником</p>
+                <p class="payment-options">Место можно забронировать за 2-3к или оплатить частями</p>
+                
+                <a href="https://t.me/m/WNiL3UICZGIy" class="btn btn-large performance-optimized">
+                    <i class="fas fa-rocket"></i>
+                    ВСТУПИТЬ В ЦИТАДЕЛЬ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-cta">
+        <a href="https://t.me/m/WNiL3UICZGIy" target="_blank" class="btn performance-optimized">
+            <i class="fas fa-bolt"></i>
+            БАБЛО
+        </a>
+    </div>
+
+    <script>
+        // Управление заставкой
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreen = document.getElementById('splashScreen');
+            
+            // Скрываем заставку через 3.5 секунды
+            setTimeout(() => {
+                splashScreen.style.opacity = '0';
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 1500);
+            }, 3500);
+            
+            // Улучшенная анимация при скролле с requestAnimationFrame
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) translateZ(0)';
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за элементами с анимацией
+            document.querySelectorAll('.point-card, .benefit-card, .performance-optimized').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px) translateZ(0)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Fallback для фотографии
+            const ivanPhoto = document.querySelector('.ivan-photo');
+            if (ivanPhoto) {
+                ivanPhoto.onerror = function() {
+                    this.style.display = 'none';
+                    // Фон уже установлен в CSS
+                };
+            }
+        });
+    </script>
+</body>
+</html>
